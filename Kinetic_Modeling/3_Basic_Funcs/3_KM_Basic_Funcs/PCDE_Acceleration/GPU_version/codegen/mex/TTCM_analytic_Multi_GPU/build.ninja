@@ -1,0 +1,62 @@
+# CompilerName=msvcpp160
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2021b
+startdir = C:\Users\LEE\Documents\MATLAB\1_QURIT_Project\Kinetic_Modeling\PCDE_Acceleration\GPU_version
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMW_CUDA_ARCH=700 -DMODEL=TTCM_analytic_Multi_GPU_mex -DMW_NEEDS_VERSION_H  
+
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMW_CUDA_ARCH=700 -DMODEL=TTCM_analytic_Multi_GPU_mex -DMW_NEEDS_VERSION_H  
+
+ldflags =  -Xlinker /nologo -Xlinker /manifest -Xlinker /DLL -L"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libMatlabDataArray.lib libMatlabEngine.lib   libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib -arch sm_70  -L"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\lib\x64" cudart.lib cublas.lib cusolver.lib cufft.lib curand.lib -Xnvlink -w  -Wno-deprecated-gpu-targets -Xlinker /NODEFAULTLIB:libcmt.lib
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+cudac = nvcc
+linkercuda = nvcc
+
+cudaflags =  -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler "/wd 4819" -Xcompiler "/MD" -Xcudafe "--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler "/source-charset:utf-8" -I "$root" -I "$startdir" -I "$root\interface" -I "$matlabdir\extern\include" -I "." -DMW_CUDA_ARCH=700 -DMODEL=TTCM_analytic_Multi_GPU_mex -DMW_NEEDS_VERSION_H  -arch sm_70  -I "$matlabdir/simulink/include" -I "$matlabdir/toolbox/shared/simtargets"
+rule cudac
+    command = $cudac $cudaflags $in -o $out
+
+rule linkcuda
+    command = $linkercuda $ldflags -o $out $in
+
+# Build
+build $builddir\TTCM_analytic_Multi_GPU_data.obj : cudac $root\TTCM_analytic_Multi_GPU_data.cu
+build $builddir\rt_nonfinite.obj : cudac $root\rt_nonfinite.cu
+build $builddir\TTCM_analytic_Multi_GPU_initialize.obj : cudac $root\TTCM_analytic_Multi_GPU_initialize.cu
+build $builddir\TTCM_analytic_Multi_GPU_terminate.obj : cudac $root\TTCM_analytic_Multi_GPU_terminate.cu
+build $builddir\TTCM_analytic_Multi_GPU.obj : cudac $root\TTCM_analytic_Multi_GPU.cu
+build $builddir\_coder_TTCM_analytic_Multi_GPU_api.obj : cudac $root\interface\_coder_TTCM_analytic_Multi_GPU_api.cu
+build $builddir\_coder_TTCM_analytic_Multi_GPU_mex.obj : cudac $root\interface\_coder_TTCM_analytic_Multi_GPU_mex.cu
+build $builddir\div.obj : cudac $root\div.cu
+build $builddir\_coder_TTCM_analytic_Multi_GPU_info.obj : cxx $root\interface\_coder_TTCM_analytic_Multi_GPU_info.cpp
+build $builddir\MWMemoryManager.obj : cudac $root\MWMemoryManager.cpp
+build $builddir\cpp_mexapi_version.obj : cudac $root\cpp_mexapi_version.cpp
+
+# Link
+build $root\TTCM_analytic_Multi_GPU_mex.mexw64 : linkcuda $builddir\TTCM_analytic_Multi_GPU_data.obj $builddir\rt_nonfinite.obj $builddir\TTCM_analytic_Multi_GPU_initialize.obj $builddir\TTCM_analytic_Multi_GPU_terminate.obj $builddir\TTCM_analytic_Multi_GPU.obj $builddir\_coder_TTCM_analytic_Multi_GPU_api.obj $builddir\_coder_TTCM_analytic_Multi_GPU_mex.obj $builddir\div.obj $builddir\_coder_TTCM_analytic_Multi_GPU_info.obj $builddir\MWMemoryManager.obj $builddir\cpp_mexapi_version.obj 

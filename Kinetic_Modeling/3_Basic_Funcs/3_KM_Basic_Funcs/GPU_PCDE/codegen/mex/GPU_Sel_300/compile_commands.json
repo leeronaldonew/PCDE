@@ -1,0 +1,62 @@
+[
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" GPU_Sel_300_data.cu -o build\\win64\\GPU_Sel_300_data.obj",
+    "file": "GPU_Sel_300_data.cu",
+    "output": "build/win64/GPU_Sel_300_data.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" rt_nonfinite.cu -o build\\win64\\rt_nonfinite.obj",
+    "file": "rt_nonfinite.cu",
+    "output": "build/win64/rt_nonfinite.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" GPU_Sel_300_initialize.cu -o build\\win64\\GPU_Sel_300_initialize.obj",
+    "file": "GPU_Sel_300_initialize.cu",
+    "output": "build/win64/GPU_Sel_300_initialize.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" GPU_Sel_300_terminate.cu -o build\\win64\\GPU_Sel_300_terminate.obj",
+    "file": "GPU_Sel_300_terminate.cu",
+    "output": "build/win64/GPU_Sel_300_terminate.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" GPU_Sel_300.cu -o build\\win64\\GPU_Sel_300.obj",
+    "file": "GPU_Sel_300.cu",
+    "output": "build/win64/GPU_Sel_300.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" interface\\_coder_GPU_Sel_300_api.cu -o build\\win64\\_coder_GPU_Sel_300_api.obj",
+    "file": "interface/_coder_GPU_Sel_300_api.cu",
+    "output": "build/win64/_coder_GPU_Sel_300_api.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" interface\\_coder_GPU_Sel_300_mex.cu -o build\\win64\\_coder_GPU_Sel_300_mex.obj",
+    "file": "interface/_coder_GPU_Sel_300_mex.cu",
+    "output": "build/win64/_coder_GPU_Sel_300_mex.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" rtwhalf.cu -o build\\win64\\rtwhalf.obj",
+    "file": "rtwhalf.cu",
+    "output": "build/win64/rtwhalf.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "cl /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I \".\" /I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" /I \".\\interface\" /I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" /I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H   interface\\_coder_GPU_Sel_300_info.cpp /Fobuild\\win64\\_coder_GPU_Sel_300_info.obj",
+    "file": "interface/_coder_GPU_Sel_300_info.cpp",
+    "output": "build/win64/_coder_GPU_Sel_300_info.obj"
+  },
+  {
+    "directory": "C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\\codegen\\mex\\GPU_Sel_300",
+    "command": "nvcc -c -rdc=true -Wno-deprecated-gpu-targets -Xcompiler \"/wd 4819\" -Xcompiler \"/MD\" -Xcudafe \"--display_error_number --diag_suppress=2381 --diag_suppress=unsigned_compare_with_zero --diag_suppress=useless_type_qualifier_on_return_type\" -D_GNU_SOURCE -DMATLAB_MEX_FILE -Xcompiler \"/source-charset:utf-8\" -I \".\" -I \"C:\\Users\\LEE\\Documents\\MATLAB\\1_QURIT_Project\\Kinetic_Modeling\\GPU_PCDE\" -I \".\\interface\" -I \"C:\\Program Files\\MATLAB\\R2021b\\extern\\include\" -I \".\" -DMW_CUDA_ARCH=600 -DMODEL=GPU_Sel_300_GPU_MEX -DMW_NEEDS_VERSION_H  -arch sm_60  -I \"C:\\Program Files\\MATLAB\\R2021b/simulink/include\" -I \"C:\\Program Files\\MATLAB\\R2021b/toolbox/shared/simtargets\" cpp_mexapi_version.cpp -o build\\win64\\cpp_mexapi_version.obj",
+    "file": "cpp_mexapi_version.cpp",
+    "output": "build/win64/cpp_mexapi_version.obj"
+  }
+]

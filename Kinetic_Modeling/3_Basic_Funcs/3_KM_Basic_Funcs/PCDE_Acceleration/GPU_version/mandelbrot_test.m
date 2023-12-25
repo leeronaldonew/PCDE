@@ -1,0 +1,16 @@
+function count = mandelbrot_test(maxIterations,xGrid,yGrid) % mandelbrot computation
+    
+    coder.gpu.kernelfun;
+
+    z0 = xGrid + 1i*yGrid; 
+    count = ones(size(z0));
+    z = z0; 
+    for n = 0:maxIterations 
+        z = z.*z + z0; 
+        inside = abs(z)<=2; 
+        count = count + inside;
+    end 
+        count = log(count);
+
+
+end

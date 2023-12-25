@@ -1,0 +1,52 @@
+# CompilerName=msvc160
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root\build\win64
+matlabdir = C:\Program Files\MATLAB\R2021b
+startdir = C:\Users\LEE\Documents\MATLAB\1_QURIT_Project\Kinetic_Modeling
+
+# Toolchain information
+cc = cl
+cxx = cl
+linker = link
+linkerxx = link
+
+cflags =  /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=select_min_distance_ind_mex1 /openmp /wd4101 
+
+cxxflags =   /c /Zc:__cplusplus /Zp8 /GR /W3 /EHs /nologo /MD /D_CRT_SECURE_NO_DEPRECATE /D_SCL_SECURE_NO_DEPRECATE /D_SECURE_SCL=0   /DMATLAB_MEX_FILE  /DMATLAB_MEX_FILE /O2 /Oy- /DNDEBUG /fp:strict /source-charset:utf-8 /I "$root" /I "$startdir" /I "$root\interface" /I "$matlabdir\extern\include" /I "." -DMODEL=select_min_distance_ind_mex1 /openmp /wd4101 
+
+ldflags =  /nologo /manifest   /DLL /LIBPATH:"$matlabdir\extern\lib\win64\microsoft" libmx.lib libmex.lib libmat.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  /out:"select_min_distance_ind_mex1.mexw64" libemlrt.lib libcovrt.lib libut.lib libmwmathutil.lib libiomp5md.lib /nodefaultlib:vcomp /LIBPATH:"$matlabdir\bin\win64" /export:mexFunction /export:mexfilerequiredapiversion /export:emlrtMexFcnProperties /export:select_min_distance_ind /export:select_min_distance_ind_initialize /export:select_min_distance_ind_terminate /export:select_min_distance_ind_atexit /export:emxFree_real32_T /export:emxInit_real32_T /export:emxEnsureCapacity_real32_T
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in /Fo$out
+
+rule cxx
+    command = $cxx $cxxflags $in /Fo$out
+
+rule link
+    command = $linker @$out.rsp $ldflags
+    rspfile = $out.rsp
+    rspfile_content = $in
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir\select_min_distance_ind_data.obj : cc $root\select_min_distance_ind_data.c
+build $builddir\rt_nonfinite.obj : cc $root\rt_nonfinite.c
+build $builddir\select_min_distance_ind_initialize.obj : cc $root\select_min_distance_ind_initialize.c
+build $builddir\select_min_distance_ind_terminate.obj : cc $root\select_min_distance_ind_terminate.c
+build $builddir\select_min_distance_ind.obj : cc $root\select_min_distance_ind.c
+build $builddir\_coder_select_min_distance_ind_api.obj : cc $root\interface\_coder_select_min_distance_ind_api.c
+build $builddir\_coder_select_min_distance_ind_mex.obj : cc $root\interface\_coder_select_min_distance_ind_mex.c
+build $builddir\eml_int_forloop_overflow_check.obj : cc $root\eml_int_forloop_overflow_check.c
+build $builddir\select_min_distance_ind_emxutil.obj : cc $root\select_min_distance_ind_emxutil.c
+build $builddir\_coder_select_min_distance_ind_info.obj : cc $root\interface\_coder_select_min_distance_ind_info.c
+build $builddir\c_mexapi_version.obj : cc $matlabdir\extern\version\c_mexapi_version.c
+
+# Link
+build $root\select_min_distance_ind_mex1.mexw64 : link $builddir\select_min_distance_ind_data.obj $builddir\rt_nonfinite.obj $builddir\select_min_distance_ind_initialize.obj $builddir\select_min_distance_ind_terminate.obj $builddir\select_min_distance_ind.obj $builddir\_coder_select_min_distance_ind_api.obj $builddir\_coder_select_min_distance_ind_mex.obj $builddir\eml_int_forloop_overflow_check.obj $builddir\select_min_distance_ind_emxutil.obj $builddir\_coder_select_min_distance_ind_info.obj $builddir\c_mexapi_version.obj 
